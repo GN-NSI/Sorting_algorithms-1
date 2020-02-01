@@ -38,11 +38,6 @@ def smallestin(t,i,j):
             res=t[indice]
     return res
 
-def swap(t,i,j):
-    sauv=t[i]
-    t[i]=t[j]
-    t[j]=sauv
-
 def remove(t,i):
     res=[0]*(len(t)-1)
     for j in range (len(t)):
@@ -52,22 +47,12 @@ def remove(t,i):
             res[j-1]=t[j]
     return res
 
-def my_selection_sent(t):
+def map_double(t):
     res=[0]*len(t)
-    for i in range(len(t)):
-        j=index_of_the_smallest(t)
-        res=t[j]
-        remove(t,j)
-
-def index_of_the_smallest(t):
-  i=0
-  j=1
-  for elements in t:
-      if t[i]<t[j]:
-          return i
-      else:
-          return j
-
+    for i in range (len(t)):
+        res[i]=2*t[i]
+    return res
+        
 def trier(t):
     for j in range(l, len(t)):
         T=t[j]
@@ -77,3 +62,25 @@ def trier(t):
             i=i-1
         t[i+1]= T
     return t
+
+def swap(t,i,j):
+    sauv=t[i]
+    t[i]=t[j]
+    t[j]=sauv
+
+def my_selection_sent(t):
+    res=[0]*len(t)
+    for i in range(len(t)):
+        j=index_of_the_smallest(t)
+        res=t[j]
+        remove(t,j)
+        
+
+def index_of_the_smallest(t):
+  i=0
+  j=1
+  for elements in t:
+      if t[i]<t[j]:
+          return i
+      else:
+          return j
